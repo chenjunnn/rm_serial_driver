@@ -145,6 +145,7 @@ void RMSerialDriver::sendData(const auto_aim_interfaces::msg::Target::SharedPtr 
     packet.r1 = msg->radius_1;
     packet.r2 = msg->radius_2;
     packet.z_2 = msg->z_2;
+    packet.is_balance = (msg->armor_type == 1) && (msg->number == "3" || msg->number == "4" || msg->number == "5");
     crc16::Append_CRC16_Check_Sum(reinterpret_cast<uint8_t *>(&packet), sizeof(packet));
 
     std::vector<uint8_t> data = toVector(packet);
