@@ -39,7 +39,7 @@ struct SendPacket
   float r1;
   float r2;
   float z_2;
-  uint8_t armor_type;
+  uint8_t is_balance;
   uint16_t checksum = 0;
 } __attribute__((packed));
 
